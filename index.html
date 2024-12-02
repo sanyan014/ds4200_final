@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyzing Crimes in Boston</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Analyzing Crimes in Boston</h1>
+        <p>Nina Paprocki, Lilly Hover, San Yan, Darren Hsing</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Introduction Section -->
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Our topic of interest focuses on exploring crime in Boston using 911 calls for reference. As Northeastern students living in the city, it's 
+                important for us to be well-informed about local crime and incidents patterns and trends to be aware of the city we reside in. By analyzing the 
+                types of crimes and other incidents, the locations where they occur, and the times they are most frequent, we can gain a better understanding of 
+                how crime affects various areas of Boston. This knowledge is valuable not only for personal safety but also makes for an ideal data science project. 
+                With the range of features available from the dataset, we have the opportunity to create insightful visualizations and draw meaningful conclusions from
+                 the data. We aim to uncover important insights of the nature of the crimes in Boston. For instance, throughout this project, we can uncover what types of
+                  incidents are most common near the Northeastern Campus.  </p>
+        </section>
+
+        <!-- Data Section -->
+        <section id="data">
+            <h2>Data Overview</h2>
+            <p>This data set sourced from Kaggle is provided by the Boston Police Department (BPD) through the Analyze Boston 
+                organization to document initial details about incidents or crimes that occur in the city based on 911 calls 
+                that are received by the organization. This data captures records from the new crime incident report system, 
+                which includes certain attributes such as incident IDs, offense codes, district, time stamps, and more. There are 
+                17 unique attributes including type of incident, date of occurrence, and district, and over 2000 records. Records
+                 begin on June 14th, 2015 and go through September 3rd, 2018. We cleaned the data by removing the “shooting” column
+                  which was null for all rows. We also added a column of 0’s and 1’s codifying each row as 0 if the crime was 
+                  non-violent, and 1 if it was violent. Lastly, we dropped all rows with null values to make sure the data was 
+                  comprehensive for each entry. 
+
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://baystatebanner.com/2024/06/06/boston-homicide-rate-sees-sharp-decline-from-last-year/" target="_blank">Boston homicide rate sees sharp decline from last year – The Bay State Banner</a></li>
+                <li><a href="https://www.bu.edu/articles/2024/bostons-declining-murder-rate-lowest-among-big-us-cities/" target="_blank">Boston’s Declining Murder Rate Lowest among Big US Cities. Is It a Fluke? | BU Today | Boston University</a></li>
+            </ul>
+        </section>
+
+        <!-- Static Visualizations Section -->
+        <section id="static-visualizations">
+            <h2>Static Visualizations</h2>
+            <article>
+                <h3>Visualization 1: Incident Count by Month for Each Year</h3>
+                <img src="visualization (1).jpg" alt="Crimes by Time of Day">
+                <p>This line graph depicts the number of incidents involving 911 calls/incidents warranting police presence throughout 
+                    each month of multiple years (2015-2018). Each line corresponds to a year of data, which ultimately allows for comparison
+                     of monthly trends across the years. It seems that there is a peak in incidents and/or crime during the summer months, and
+                      a drop in incidents during the winter months, meaning there is a potential relationship between weather and crime. It is 
+                      worth noting that for 2015 and 2018, there are gaps in the data, meaning for these two years the data is incomplete. It seems
+                       that the data started being collected in May of 2015, and data collection was completed in September of 2018. </p>
+            </article>
+            <article>
+                <h3>Visualization 2: Incident Locations in Boston</h3>
+                <img src="mapvisualization.jpg" alt="Crime Map Visualization">
+                <p>This scatterplot uses latitude and longitude data associated with each 
+                    incident to create a map of the city of Boston. The different colored points 
+                    are used to distinguish between violent and non-violent crimes. Where the colors are 
+                    more densely concentrated, 911 calls/crimes are more frequent. Where the points are less 
+                    opaque, there is less crime. This visualization gives insights into the safety of different 
+                    areas within Boston. It can be used to describe to inhabitants which areas are associated with
+                     less crime and less incidents needing police presence. This data could be used to help the city 
+                     better allocate resources to improve public safety. </p>
+            </article>
+            <article>
+                <h3>Visualization 3: Incident Frequency by Hour and Day of the Week</h3>
+                <img src="image_123650291.jpg" alt="Crime Breakdown by Type">
+                <p>This heat map illustrates the frequency of different incidents by the hour of the day and day of the week. 
+                    As shown in the colorbar, a darker and more intense color signifies higher crime activities as denoted by 
+                    911 call data. The visualization explains that incidents are most frequent during the first few days of the
+                     week, and that incidents are most likely to occur during the late afternoon or early evening. This indicates
+                     that 911 calls and potential crimes are potentially tied to work schedules, as during the work week, especially 
+                     during typical commute times, 911 calls and crimes are most likely to occur. 
+                </p>
+            </article>
+            <article>
+                <h4>Visualization 4: Violent Crimes Reported Via 911 Over Time (2016-2018)</h4>
+                <img src = "violent_count.jpg" alt = "Violent Crimes Breakdown Time">
+                <p>This scatter plot, made using d3.js, depicts the total violent 911-reported crimes over the course of the year, 
+                    for the years 2015 through 2018. This visualization utilizes a channel of color to distinguish between each of 
+                    the four years. This is depicted in the legend in the top right. This visualization indicates that 2015 saw the 
+                    largest spike in violent crimes reported via 911, which happened between June and July. This year, 2015, ended with
+                     the highest number of reported violent crimes at around 1,000 reports. The years 2016 and 2017 were most similar 
+                     in trends, seeing a positive slope, or increase, in violent crimes between the months February and May. The year
+                      2018 shows the steepest change between any two months over the years 2015 and 2018, dropping from around 780
+                       reports to less than 100 reports. Although there is insufficient data reportings across all of the years in
+                        this data, there is reason to believe that there may be a trend between month and violent crimes.
+                </p>
+            </article>
+        </section>
+
+        <!-- Interactive Visualizations Section -->
+        <section id="interactive-visualizations">
+            <h2>Interactive Visualizations</h2>
+            <article>
+                <h3>Interactive Visualization 1: Top Crimes by the Selected Hour</h3>
+                <iframe 
+                    src="crime_by_time_of_day.html" 
+                    style="width: 100%; height: 550px; border: none;" 
+                    scrolling="no">
+                </iframe>
+                <p>This graph shows each crime type category by hour of the day. An application of this 
+                    visualization would be for the city or police department to understand which types of crimes and 
+                    incidents occur at different hours on the day on average. This will enable police officers to anticipate
+                     different levels of each type of offense throughout the day. For example, officers on patrol in the first 
+                     hour of the night likely handle more medical assistance and motor vehicle accident incidents. Versus, in hour 
+                     14, officers on patrol can expect to handle more larceny related incidents.</p>
+            </article>
+            <article>
+                <h3>Interactive Visualization 2: Crime by District</h3>
+                <iframe 
+                    src="crime_by_district.html" 
+                    style="width: 100%; height: 700px; border: none;" 
+                    scrolling="no">
+                </iframe>
+                <p>This graph illustrates a sliced view of top incidents/crimes based on a specific district. One 
+                    application of this interactive graph could be police officers analyzing which districts require 
+                    the most resources for specific crime types. For example, in District D14 motor vehicle accident 
+                    response is most common and in District A1 larceny is most common. The police department will be 
+                    able to use the drop down menu to select a specific district to visualize. The police department 
+                    can now use this information to strategically assess where specific resources should be in specific
+                     districts to better help public safety.</p>
+            </article>
+
+        </section>
+        <!-- Summary Section -->
+        <section id="summary">
+            <h2>Summary and Future Work</h2>
+            <p>
+                Through the analysis of the “Crimes in Boston” dataset, valuable insights into the patterns of distribution of crimes and incidents in the city of Boston 
+                (based on 911 call data) were found. The visualizations presented reveal analysis through both spatial and temporal trends, which can be leveraged by local
+                 law enforcement and city planners to improve public safety and resource allocation.
+            </p>
+            <p>
+                One key finding from the interactive “Top Crimes by District” graph is the variation in types of incident across different districts. For instance, District D14 
+                sees more motor vehicle accidents reported via 911, while District A1 experiences higher rates of larceny reported via 911. This analysis could be useful for 
+                justification of government funding for additional road work and signage for District D14, and increased patrolling of District A1. These insights allow for more
+                 targeted resource allocation by the police department as well, ensuring that each district receives the necessary focus based on the type of crimes more prevalent 
+                 in that area. Furthermore, the “Incident Frequency by Hour and Day of the Week” visualization offers critical information for anticipating shifts in crime 
+                 throughout the day. For example, early evening hours tend to have higher 911 reports for larceny incidents, while medical assistance calls are more frequent 
+                 at nighttime. This pattern indicates that greater resources should be allocated and anticipated through the police department for the latter half of the day
+                  where the peak of incidents are most likely to be called in.
+            </p>
+            <p>
+                The heatmap visualization illustrates the correlation between crime frequency and both time of day and weekday, showing that crime peaks earlier in the week 
+                via (911 reports), and later in the afternoon and early evening. This trend suggests that crime may be influenced by work schedules, which could prompt further 
+                investigation and analysis into factors such as economic or social stressors during these times. The scatterplot map of Boston provides a geographic perspective 
+                on crime distribution, highlighting high-crime areas and offering the possibility for improving safety measures or patrol planning in areas with dense violent
+                 and non-violent crime activity. Similarly, the line graph on crime trends over multiple years shows a clear seasonal pattern, with 911-reported incidents 
+                 spiking during warmer months, suggesting a potential link between weather and crime rates.
+            </p>
+            <p>
+                Future research and analysis could include expanding the dataset timeframe to include additional years, which would allow for greater comprehensive trend 
+                analysis and a deeper understanding of crime dynamics over longer periods. Additionally, incorporating other data sources, such as socioeconomic and demographic 
+                factors, could offer more insights into the root causes of crime spikes. More advanced interactive features, such as predictive crime models or real-time data 
+                integration, could also be developed to present important findings which assist law enforcement and government agencies in making proactive decisions and increasing
+                 funding in areas heavily impacted by crime.
+            </p>
+            <p>
+                Overall, the visualizations provide a clear and detailed understanding of crime patterns in Boston, enabling more informed decision-making and better resource 
+                management. As the data collection improves and expands, these insights will become even more valuable in shaping the future of public safety in the city.
+            </p>
+        </section>
+        
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Nina Paprocki, Lilly Hover, San Yan, Darren Hsing</p>
+    </footer>
+
+</body>
+</html>
